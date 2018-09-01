@@ -1,6 +1,7 @@
 # maven-project
 
 ADD new string hallo
+New string add for testing jenkins
 
 Source code for James Lee's Jenkins course.
 
