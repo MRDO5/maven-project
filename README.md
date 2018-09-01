@@ -1,7 +1,6 @@
 # maven-project
 
-ADD new string hallo
-New string add for testing jenkins
+De eli add web hook
 
 Source code for James Lee's Jenkins course.
 
