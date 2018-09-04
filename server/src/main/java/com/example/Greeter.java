@@ -14,7 +14,7 @@ public class Greeter {
 
 /** @aparam someon the
  */
-  public final String greet(final String someone) {
+  public final String greet( String someone) {
     return String.format("Hello, %s!", someone);
   }
 }
