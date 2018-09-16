@@ -4,7 +4,7 @@ pipeline {
     tools {
         maven 'localMaven'
         }
-     stages{
+    stages{
         stage('Build'){
                 steps { 
                    sh 'mvn clean package'
@@ -16,13 +16,13 @@ pipeline {
 		  }
 	        }
 	 stage('Push Docker image'){ 
-                 steps {
+                steps {
   		   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'duck-pwd')]) { 
 		   sh "docker login -u martin55 -p ${duck-pwd}" 
 		   } 
   	         }
-		 steps {
-		   sh 'docker push  tomcatwebapp:${env.BUILD_ID} martin55/testtomcatap:${env.BUILD_ID}'
+		steps {
+		   sh "docker push  tomcatwebapp:${env.BUILD_ID} martin55/testtomcatap:${env.BUILD_ID}"
                 }
 	     }
          }
