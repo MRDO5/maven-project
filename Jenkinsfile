@@ -19,10 +19,13 @@ pipeline {
                  steps {
   		   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'duck-pwd')]) { 
 		   sh "docker login -u martin55 -p ${duck-pwd}" 
-		   }
+		   } 
+  	         }
+		 steps {
 		   sh 'docker push  tomcatwebapp:${env.BUILD_ID} martin55/testtomcatap:${env.BUILD_ID}'
                 }
 	     }
          }
      }
+
 
