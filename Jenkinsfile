@@ -17,11 +17,12 @@ pipeline {
 	        }
 	 stage('Push Docker image') { 
                  steps {
-		   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')])
+		   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]){
 		   sh "docker login -u martin55 -p ${dockerhub-pwd}"
+ 		   }
 		   sh "docker push  martin55/testtomcatap:1"
                 }
 	     }
-          }
-      }
+         }
+     }
 
