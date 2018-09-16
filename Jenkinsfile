@@ -17,10 +17,8 @@ pipeline {
 	        }
 	 stage('Push Docker image'){ 
                 steps {
-		   withCredentials([usernameColonPassword(credentialsId: 'docker-hub', variable: 'dock-hub')]){ 
-		      sh "docker login ${duck-hub}" 
-		   } 
-  	           sh "docker push martin55/tomcatwebapp:${env.BUILD_ID}"
+		      sh "docker login credentialsId: 'docker-hub' 
+		      sh "docker push martin55/tomcatwebapp:${env.BUILD_ID}"
                 }
 	     }
          }
