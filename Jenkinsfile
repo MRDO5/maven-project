@@ -12,7 +12,7 @@ pipeline {
 	        }
 	stage('Build Docekr images'){  
                 steps { 
- 		   sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
+ 		   sh "docker build . -t martin55/ntomcatwebapp:${env.BUILD_ID}"
 		  }
 	        }
 	 stage('Push Docker image'){ 
