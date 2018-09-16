@@ -12,7 +12,7 @@ pipeline {
 	        }
 	stage('Build Docekr images'){  
                 steps { 
- 		   sh "docker build . -t martin55/ntomcatwebapp:${env.BUILD_ID}"
+ 		   sh "docker build . -t martin55/tomcatwebapp:${env.BUILD_ID}"
 		  }
 	        }
 	 stage('Push Docker image'){ 
@@ -20,7 +20,7 @@ pipeline {
   		   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'duck-pwd')]){ 
 		       sh "docker login -u martin55 -p ${duck-pwd}" 
 		   } 
-  	           sh "docker push martin55/testtomcatap:${env.BUILD_ID}"
+  	           sh "docker push martin55/tomcatwebapp:${env.BUILD_ID}"
                 }
 	     }
          }
