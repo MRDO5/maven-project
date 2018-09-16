@@ -5,15 +5,15 @@ pipeline {
         maven 'localMaven'
         }
      stages{
-        stage ('Build'){
-                steps {
+        stage('Build'){
+                steps { 
                    sh 'mvn clean package'
-		}
-	      }
-	stage ('Build Docekr images'){  
+	  	  }
+	        }
+	stage('Build Docekr images'){  
                  sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
 		  }
-	stage ('Push Docker image') { 
+	stage('Push Docker image') { 
              steps {
 		withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')])
 		sh "docker login -u martin55 -p ${dockerhub-pwd}"
