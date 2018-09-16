@@ -20,7 +20,7 @@ pipeline {
   		   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'duck-pwd')]){ 
 		       sh "docker login -u martin55 -p ${duck-pwd}" 
 		   } 
-  	           sh "docker push  tomcatwebapp:${env.BUILD_ID} martin55/testtomcatap:${env.BUILD_ID}"
+  	           sh "docker push martin55/testtomcatap:${env.BUILD_ID}"
                 }
 	     }
          }
