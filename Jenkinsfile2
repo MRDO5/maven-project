@@ -1,4 +1,6 @@
 node {
+
+	checkout scm
    
     tools {
         maven 'localMaven'
