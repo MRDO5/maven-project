@@ -12,7 +12,7 @@ node {
         }
       stage ('Runing container on Dev server'){
          def dockerRun = 'docker run -d -p 8080:8080 -name webapp martin55/tomcatwebapp:${BUILD_ID}'
-	 shagent(['vm-ssh']) {
+	 sshagent(['vm-ssh']) {
            sh 'ssh -o StrictHostKeyChecking=no root@192.168.88.202 ${dockerRun}'
           }
        }
