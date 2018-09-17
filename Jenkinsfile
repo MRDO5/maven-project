@@ -11,7 +11,7 @@ node {
             sh 'docker push martin55/tomcatwebapp:${BUILD_ID}'
         }
       stage ('Runing container on Dev server'){
-         def dockerRun = 'docker run -d -p 8080:8080 martin55/tomcatwebapp:${BUILD_ID}' 
+         def dockerRun="docker run -d -p 8080:8080 martin55/tomcatwebapp:${BUILD_ID}"
 	 sshagent(['vmssh']) {
            sh "ssh -o StrictHostKeyChecking=no root@192.168.88.202 ${dockerRun}"
           }
