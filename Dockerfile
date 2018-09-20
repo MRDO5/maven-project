@@ -6,6 +6,6 @@ RUN apt-get update -y && apt-get clean all
 
 CMD ["catalina.sh", "run"]
 
-EXPOSE 8080
+EXPOSE 8088
 
 
