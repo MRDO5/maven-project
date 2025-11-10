@@ -1,33 +1,29 @@
 package com.example;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 
 public class TestGreeter {
 
-  private Greeter greeter;
+    private Greeter greeter;
 
-  @Before
-  public void setup() {
-    greeter = new Greeter();
-  }
+    @BeforeEach
+    void setUp() {
+        greeter = new Greeter();
+    }
 
-  @Test
-  public void greetShouldIncludeTheOneBeingGreeted() {
-    String someone = "World";
+    @Test
+    void shouldReturnGreetingMessage() {
+        String message = greeter.greet("Martin");
+        assertThat(message, containsString("Martin"));
+    }
 
-    assertThat(greeter.greet(someone), containsString(someone));
-  }
-
-  @Test
-  public void greetShouldIncludeGreetingPhrase() {
-    String someone = "World";
-
-    assertThat(greeter.greet(someone).length(), is(greaterThan(someone.length())));
-  }
+    @Test
+    void shouldReturnNonEmptyMessage() {
+        String message = greeter.greet("World");
+        assertThat(message.length(), org.hamcrest.Matchers.greaterThan(0));
+    }
 }
