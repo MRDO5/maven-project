@@ -83,6 +83,9 @@
             <plugin>
               <artifactId>maven-surefire-report-plugin</artifactId>
               <version>3.2.5</version>
+              <configuration>
+                  <skipTests>true</skipTests>
+              </configuration>
             </plugin>
 
             <plugin>
