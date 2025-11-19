@@ -1,1 +1,1 @@
-Hello World! Version7 from EC2
+Hello World! Version8 from EC2
